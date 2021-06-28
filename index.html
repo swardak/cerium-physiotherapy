@@ -7,11 +7,10 @@
     <title>Cerium Physiotherapy</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="styles/styles.scss">
     <link rel="shortcut icon" type="image/jpg" href="assets/favicon.ico">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light px-4">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light px-4 sticky-top">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">
             <img src="assets/Cerium-logo.png" alt="cerium physio logo" height="50">
@@ -155,73 +154,159 @@
                 </div>
               </div>
           </div>
-          <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#bookAppt">Book Now!</button>
-    </div>
+          <span data-bs-toggle="modal" data-bs-target="#bookAppt">
+          <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="tooltip"  data-bs-placement="right" title="Click here to book your appointment with a specialist" >Book Now!</button>
+        </span>
+        </div>
 
 
       <!-- Modal -->
     <div class="modal fade" id="bookAppt" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Book Your Appointment</h5>
+                    <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-calendar"></i> Book Your Appointment</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
+                
                 <div class="modal-body">
-                    <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Email address</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  <form class="needs-validation" novalidate>
+                    <div class="row align-items-center mb-3">
+                      <div class="col position-relative">
+                        <label for="exampleInputEmail1" class="form-label" required>Email address</label>
+                        <input placeholder="welcome@ceriumphys.ca" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+                        <div class="invalid-tooltip">
+                          Please enter a valid email
+                        </div>
+                        </div>
+                        <div class="col position-relative">
+                          <label for="exampleInputEmail1" class="form-label" required>Phone number</label>
+                          <input placeholder="(613) 420 6969" type="text" pattern="^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+                          <div class="invalid-tooltip">
+                            Please enter a valid phone number using digits 0-9
+                          </div>
+                          </div>
                       </div>
 
                       <div class="row align-items-center">
-                        <div class="col">
+                        <div class="col position-relative">
                           <label for="inputPassword6" class="col-form-label">First Name</label>
-                          <input type="text" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
+                          <input type="text" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline" required>
                         </div>
-                        <div class="col">
+                        <div class="col position-relative">
                             <label for="inputPassword6" class="col-form-label">Last Name</label>
-                            <input type="text" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
+                            <input type="text" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline" required>
                         </div>
                       </div>
+
+              
 
                       <div class="row align-items-center">
                         <div class="col">
-                          <label for="inputPassword6" class="col-form-label">Appointment Date</label>
-                          <input type="date" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
-                        </div>
-                        <div class="col">
-                            <label for="inputPassword6" class="col-form-label">Appointment Time</label>
-                            <input type="time" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
-                        </div>
-                      </div>
-
                       <label for="teamreq" class="form-label mt-3">Team Member Preference</label>
-                      <select id="teamreq" class="form-select" aria-label="Default select example">
-                        <option selected disabled>Select a team member</option>
+                      <select id="teamreq" class="form-select" aria-label="Default select example" required>
+                        <option selected value="3">No Preference</option>
                         <option value="1">Patrick Ayari</option>
                         <option value="2">Dr. Jenna Hopkins</option>
                         <option value="3">Julien Salas</option>
-                        <option value="3">No Preference</option>
+                        
                       </select>
-
+                    </div>
+                    <div class="col">
                       <label for="servicereq" class="form-label mt-3">Service Requested</label>
-                      <select id="servicereq" class="form-select" aria-label="Default select example">
-                        <option selected disabled>Select a service</option>
-                        <option value="1">Physiotherapy</option>
+                      <select id="servicereq" class="form-select" aria-label="Default select example" required>
+                        <option selected value="1">Physiotherapy</option>
                         <option value="2">Massage Therapy</option>
                         <option value="3">Sports Injury</option>
                         <option value="4">Accupuncture</option>
                         <option value="5">Concussion Rehab</option>
                         <option value="6">Vestibular Rehab</option>
                       </select>
+                    </div>
+                    </div>
+
+                    <div class="row align-items-center">
+                      <div class="col position-relative">
+                        <label for="inputPassword6" class="col-form-label">Appointment Date</label>
+                        <input type="date" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline" required>
+                        <div class="invalid-tooltip">
+                          Select a date
+                        </div>
+                      </div>
+                      <div class="col position-relative">
+                          <label for="inputPassword6" class="col-form-label">Appointment Time</label>
+                          <input type="time" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline" required>
+                          <div class="invalid-tooltip">
+                            Select a time
+                          </div>
+                        </div>
+                    </div>
+
+                    <h5 class="modal-title pt-3 py-1"><i class="bi bi-credit-card"></i> Payment Information</h5>
+                      <div class="row align-items-center">
+                        <div class="col position-relative">
+                          <label for="inputPassword6" class="col-form-label">Name of Cardholder</label>
+                          <input type="text" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline" required>
+                        </div>
+                      </div>
+                      <div class="row align-items-center">
+                        <div class="col position-relative">
+                          <label for="inputPassword6" class="col-form-label">Card Number</label>
+                          <input placeholder="123456789012345" type="text" id="inputPassword6" maxlength="16" pattern="\b\d{13,16}\b" class="form-control" aria-describedby="passwordHelpInline" required>
+                          <div class="invalid-tooltip">
+                            Enter a card number of length 13-16 made up of digits 0-9
+                          </div>
+                        </div>
+                        <div class="col-md-3 position-relative">
+                          <label for="inputPassword6" class="col-form-label">Expiration Date</label>
+                          <input placeholder="MM/YY" type="text" id="inputPassword6" class="form-control" maxlength="5" pattern="^(0[1-9]|1[0-2])\/([0-9]{2})$"aria-describedby="passwordHelpInline" required>
+                          <div class="invalid-tooltip">
+                            Must be MM/YY format
+                          </div>
+                        </div>
+                        <div class="col-md-3 position-relative">
+                          <label for="inputPassword6" class="col-form-label">CVV</label>
+                          <div class="input-group">
+                            <input placeholder="123" type="text" id="inputPassword6" class="form-control" maxlength="3" pattern="[0-9]*" aria-describedby="passwordHelpInline" required>
+                            <span class="input-group-text transparent" data-bs-toggle="tooltip" data-bs-placement="right" title="The CVV can be found on the back of your card"><i class="bi bi-question-circle"></i></span>
+                            <div class="invalid-tooltip">
+                              CVV must be 3 digits
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                 </div>
+              
                 <div class="modal-footer">
                     <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-primary">Book Appointment</button>
+                    <button type="submit" class="btn btn-primary" id="bookApptButt">Book Appointment</button>
                 </div>
+              </form>
             </div>
         </div>
+        
     </div>
+
+    <!-- <div class="alert alert-success d-flex align-items-center" id="success-alert" role="alert">
+      <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
+      <div>
+        Successfully submitted form!
+      </div>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div> -->
+
+    <div id=myAlert"></div>
+
+    
+
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+      <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
+        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+      </symbol>
+      <symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
+        <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+      </symbol>
+    </svg>
 
     <!-- text from https://www.optsc.com/team-->
       <div id="team">
@@ -315,6 +400,45 @@
                   href="https://swardak.github.io/lab4-seg3125">CeriumPhys.ca</a>
           </h5>
       </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+      
+      </script>
+      <script type="text/javascript">
+      var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+      var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+      return new bootstrap.Tooltip(tooltipTriggerEl)
+      })
+
+      function showAlert(){
+  if($("#myAlert").find("div#myAlert2").length==0){
+    $
+  }
+  $("#myAlert").css("display", "");
+}
+
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+(function () {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  var forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.prototype.slice.call(forms)
+    .forEach(function (form) {
+      form.addEventListener('submit', function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+        else {
+          alert("Form submitted successfully!");
+        }
+
+        form.classList.add('was-validated')
+      }, false)
+    })
+})()
+      </script>
 </body>
 </html>
